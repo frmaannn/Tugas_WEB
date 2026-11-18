@@ -51,7 +51,7 @@ function initProjectFilters() {
    ========================================================= */
 const mockGitHubData = {
   user: {
-    avatar_url: "assets/nailong.gif",
+    avatar_url: "assets/doraemon.png",
     name: "Firman Maulana Firdauz",
     login: "firmanmf",
     bio: "Mahasiswa Teknik Informatika Universitas Muhammadiyah Malang (UMM).",
