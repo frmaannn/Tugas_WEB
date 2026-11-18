@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karya &amp; Proyek — Firman Maulana Firdauz (Informatika UMM)</title>
+  <meta name="description" content="Koleksi proyek pemrograman web dan integrasi langsung GitHub REST API karya Firman Maulana Firdauz, Informatika Universitas Muhammadiyah Malang.">
+  
+  <!-- Favicon Monogram -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23B38738'>✦</text></svg>">
+  
+  <!-- Tailwind CSS CDN & Konfigurasi Estetika Klasik -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#FAF6EE',
+              100: '#F4EAD6',
+              200: '#E7D4AD',
+              300: '#D9BC84',
+              400: '#C9A25A',
+              500: '#B38738',
+              600: '#966E29',
+              700: '#75541E',
+              800: '#553C14',
+              900: '#38270A',
+            },
+            parchment: {
+              DEFAULT: '#FDFBF7',
+              50: '#FFFFFF',
+              100: '#FDFBF7',
+              200: '#F6F2EA',
+              300: '#EFE9DE',
+              400: '#E6DFD3',
+            },
+            charcoal: {
+              DEFAULT: '#1C1A17',
+              800: '#201E1B',
+              900: '#141312',
+              950: '#0E0D0C',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            accent: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Stylesheet Pendukung -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#141312] text-stone-800 dark:text-stone-200 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+  <!-- ==========================================
+       HEADER & NAVIGASI TAILWIND CSS
+       ========================================== -->
+  <header class="sticky top-0 z-50 bg-[#FDFBF7]/90 dark:bg-[#141312]/90 backdrop-blur-md border-b border-[#E6DFD3] dark:border-[#2F2C27] transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo Monogram Klasik -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 border-2 border-gold-500 rounded bg-white dark:bg-charcoal-800 flex items-center justify-center font-accent font-bold text-xl text-gold-500 shadow-sm relative transition-transform group-hover:scale-105">
+          FM
+        </div>
+        <div>
+          <div class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 tracking-wide leading-tight">
+            Firman Maulana Firdauz
+          </div>
+          <span class="block font-sans text-[11px] font-semibold tracking-widest uppercase text-gold-600 dark:text-gold-400">
+            Informatika • UMM
+          </span>
+        </div>
+      </a>
+
+      <!-- Menu Navigasi Desktop & Mobile Dropdown -->
+      <nav>
+        <ul id="navMenu" class="hidden md:flex flex-col md:flex-row items-center gap-6 absolute md:static top-20 left-0 right-0 bg-white dark:bg-[#201E1B] md:bg-transparent md:dark:bg-transparent border-b md:border-b-0 border-[#E6DFD3] dark:border-[#2F2C27] p-6 md:p-0 shadow-lg md:shadow-none transition-all">
+          <li>
+            <a href="index.html" class="nav-link text-sm font-medium tracking-wide py-1 text-stone-600 dark:text-stone-300 hover:text-gold-500 dark:hover:text-gold-400 transition-colors">
+              Beranda
+            </a>
+          </li>
+          <li>
+            <a href="projects.html" class="nav-link text-sm font-medium tracking-wide py-1 transition-colors text-gold-500 font-semibold border-b-2 border-gold-500">
+              Karya &amp; Proyek
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link text-sm font-medium tracking-wide py-1 text-stone-600 dark:text-stone-300 hover:text-gold-500 dark:hover:text-gold-400 transition-colors">
+              Kontak
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Aksi Navigasi (Pengubah Tema & Hamburger Mobile) -->
+      <div class="flex items-center gap-3">
+        <button id="themeToggleBtn" class="w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] bg-white dark:bg-[#201E1B] text-stone-800 dark:text-stone-200 hover:border-gold-500 hover:text-gold-500 flex items-center justify-center transition-all shadow-sm" aria-label="Ganti Tema">
+          ☀️
+        </button>
+        <button id="hamburgerBtn" class="md:hidden w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] text-stone-800 dark:text-stone-200 flex items-center justify-center text-lg" aria-label="Buka Menu" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- ==========================================
+         BANNER HALAMAN PROYEK
+         ========================================== -->
+    <section class="max-w-6xl mx-auto px-6 pt-16 pb-10 text-center">
+      <span class="text-xs font-bold tracking-widest uppercase text-gold-600 dark:text-gold-400 block mb-2">
+        Galeri Informatika UMM
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-3">
+        Karya &amp; Eksperimen Kode
+      </h1>
+      <div class="ornament">
+        <span class="ornament-diamond">◆</span>
+      </div>
+      <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        Dokumentasi karya digital Firman Maulana Firdauz yang mengimplementasikan standar HTML5, tata letak <strong>Tailwind CSS</strong> elegan, JavaScript modular, dan integrasi data asinkron via REST API.
+      </p>
+    </section>
+
+    <!-- ==========================================
+         FITUR UTAMA: LIVE GITHUB REST API EXPLORER
+         (Memenuhi spesifikasi API secara interaktif & nyata)
+         ========================================== -->
+    <section class="bg-[#F6F2EA] dark:bg-[#1B1917] border-y border-[#E6DFD3] dark:border-[#2F2C27] py-16 transition-colors">
+      <div class="max-w-6xl mx-auto px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold tracking-widest uppercase text-gold-600 dark:text-gold-400 block mb-2">
+            Integrasi REST API Nyata
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-3">
+            GitHub Live Data Explorer
+          </h2>
+          <div class="ornament">
+            <span class="ornament-diamond">◆</span>
+          </div>
+          <p class="text-stone-600 dark:text-stone-300 text-xs sm:text-sm">
+            Memanfaatkan fungsi <code>fetch()</code> API untuk mengambil biodata profil dan repositori publik secara real-time langsung dari server GitHub.
+          </p>
+        </div>
+
+        <!-- Wadah Box Explorer -->
+        <div class="bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] rounded p-6 sm:p-10 shadow-sm relative transition-colors">
+          <div class="absolute top-0 left-6 right-6 h-0.5 bg-gold-500"></div>
+
+          <div class="text-center mb-6">
+            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+              Ketik username GitHub apa saja (misalnya akun Anda, <code>firmanmf</code>, <code>torvalds</code>, atau <code>google</code>):
+            </p>
+          </div>
+
+          <!-- Form Pencarian API -->
+          <form id="githubSearchForm" class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-8">
+            <input 
+              type="text" 
+              id="githubUsernameInput" 
+              class="flex-grow px-4 py-3 bg-[#F6F2EA] dark:bg-[#1B1917] border border-[#E6DFD3] dark:border-[#2F2C27] focus:border-gold-500 rounded text-stone-900 dark:text-stone-100 text-sm outline-none transition-colors"
+              placeholder="Masukkan username GitHub..." 
+              value="torvalds"
+              required
+            >
+            <button type="submit" id="githubSearchBtn" class="px-6 py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold text-xs tracking-widest uppercase rounded shadow transition-all flex-shrink-0">
+              Ambil Data API
+            </button>
+          </form>
+
+          <!-- Indikator Loading -->
+          <div id="githubLoading" class="hidden text-center py-6 text-gold-500 text-sm font-medium">
+            <span>✦ Mengambil data dari server GitHub API...</span>
+          </div>
+
+          <!-- Wadah Profil GitHub dari API -->
+          <div id="githubUserContainer"></div>
+
+          <!-- Wadah Grid Repositori dari API -->
+          <div id="githubReposContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         KOLEKSI PROYEK TERKURASI DENGAN FILTER
+         ========================================== -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-widest uppercase text-gold-600 dark:text-gold-400 block mb-2">
+          Katalog Terstruktur
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-3">
+          Koleksi Proyek Pilihan
+        </h2>
+        <div class="ornament">
+          <span class="ornament-diamond">◆</span>
+        </div>
+        <p class="text-stone-600 dark:text-stone-300 text-sm">
+          Saring proyek berdasarkan bidang implementasi teknologi web yang dikembangkan.
+        </p>
+      </div>
+
+      <!-- Tombol Filter Interaktif (JavaScript) -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        <button class="filter-btn px-5 py-2 rounded text-xs font-semibold tracking-wider border transition-all bg-gold-500 text-white border-gold-500 shadow-sm" data-filter="all">
+          Semua Karya
+        </button>
+        <button class="filter-btn px-5 py-2 rounded text-xs font-semibold tracking-wider border transition-all bg-white dark:bg-[#201E1B] text-stone-700 dark:text-stone-300 border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500" data-filter="webapp">
+          Web Application
+        </button>
+        <button class="filter-btn px-5 py-2 rounded text-xs font-semibold tracking-wider border transition-all bg-white dark:bg-[#201E1B] text-stone-700 dark:text-stone-300 border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500" data-filter="frontend">
+          Front-End Design
+        </button>
+        <button class="filter-btn px-5 py-2 rounded text-xs font-semibold tracking-wider border transition-all bg-white dark:bg-[#201E1B] text-stone-700 dark:text-stone-300 border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500" data-filter="api">
+          Integrasi API
+        </button>
+      </div>
+
+      <!-- Grid Kartu Proyek -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Proyek 1: Web App -->
+        <div class="project-card bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500 rounded overflow-hidden flex flex-col hover:-translate-y-1.5 transition-all duration-300 shadow-sm" data-category="webapp">
+          <div class="h-44 bg-gradient-to-br from-[#2b2722] to-[#181716] flex flex-col items-center justify-center text-white relative border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+            <span class="absolute top-3 right-3 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded">Web App</span>
+            <div class="text-3xl mb-1 text-gold-400">🏛️</div>
+            <div class="font-serif font-bold text-lg text-stone-100">Atelier Heritage UMM</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-gold-600 dark:text-gold-400 mb-1">Arsitektur &amp; Budaya</span>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 mb-2">Katalog Warisan Klasik</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 flex-grow">
+              Sistem katalog digital yang mengkurasi monumen arsitektur neoklasik dengan detail sejarah, navigasi dinamis, dan tipografi antik.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">HTML5 Semantik</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Tailwind CSS</span>
+            </div>
+            <div class="pt-3 border-t border-[#E6DFD3] dark:border-[#2F2C27] flex items-center justify-between text-xs">
+              <span class="font-semibold text-gold-500">Status: Selesai</span>
+              <span class="text-stone-400">Informatika UMM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyek 2: API -->
+        <div class="project-card bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500 rounded overflow-hidden flex flex-col hover:-translate-y-1.5 transition-all duration-300 shadow-sm" data-category="api">
+          <div class="h-44 bg-gradient-to-br from-[#2b2722] to-[#181716] flex flex-col items-center justify-center text-white relative border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+            <span class="absolute top-3 right-3 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded">REST API</span>
+            <div class="text-3xl mb-1 text-gold-400">📜</div>
+            <div class="font-serif font-bold text-lg text-stone-100">Bibliotheca Quotes</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-gold-600 dark:text-gold-400 mb-1">Layanan Data</span>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 mb-2">Mesin Kutipan Sastra Dunia</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 flex-grow">
+              Aplikasi interaktif yang mengonsumsi REST API kutipan sastra publik secara asinkron dengan fitur ganti acak dan penyimpanan lokal.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Fetch API</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">JSON Parsing</span>
+            </div>
+            <div class="pt-3 border-t border-[#E6DFD3] dark:border-[#2F2C27] flex items-center justify-between text-xs">
+              <span class="font-semibold text-gold-500">Status: Aktif</span>
+              <span class="text-stone-400">Informatika UMM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyek 3: Front-End -->
+        <div class="project-card bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500 rounded overflow-hidden flex flex-col hover:-translate-y-1.5 transition-all duration-300 shadow-sm" data-category="frontend">
+          <div class="h-44 bg-gradient-to-br from-[#2b2722] to-[#181716] flex flex-col items-center justify-center text-white relative border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+            <span class="absolute top-3 right-3 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded">Front-End</span>
+            <div class="text-3xl mb-1 text-gold-400">🖋️</div>
+            <div class="font-serif font-bold text-lg text-stone-100">Aethelgard Press</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-gold-600 dark:text-gold-400 mb-1">Desain Editorial</span>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 mb-2">Majalah Sastra Digital</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 flex-grow">
+              Antarmuka pembaca artikel dengan tata letak editorial koran klasik eropa abad ke-19, didukung mode malam otomatis dengan Tailwind.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Tailwind CSS</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Typography</span>
+            </div>
+            <div class="pt-3 border-t border-[#E6DFD3] dark:border-[#2F2C27] flex items-center justify-between text-xs">
+              <span class="font-semibold text-gold-500">Status: Selesai</span>
+              <span class="text-stone-400">Informatika UMM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyek 4: Web App -->
+        <div class="project-card bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500 rounded overflow-hidden flex flex-col hover:-translate-y-1.5 transition-all duration-300 shadow-sm" data-category="webapp">
+          <div class="h-44 bg-gradient-to-br from-[#2b2722] to-[#181716] flex flex-col items-center justify-center text-white relative border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+            <span class="absolute top-3 right-3 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded">Web App</span>
+            <div class="text-3xl mb-1 text-gold-400">⏳</div>
+            <div class="font-serif font-bold text-lg text-stone-100">Chronos Taskmaster</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-gold-600 dark:text-gold-400 mb-1">Produktivitas Mahasiswa</span>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 mb-2">Manajemen Agenda Kuliah</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 flex-grow">
+              Aplikasi pencatatan tugas kuliah dengan penyimpanan persisten di <code>localStorage</code> dan indikator prioritas visual elegan.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">JavaScript ES6</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">LocalStorage</span>
+            </div>
+            <div class="pt-3 border-t border-[#E6DFD3] dark:border-[#2F2C27] flex items-center justify-between text-xs">
+              <span class="font-semibold text-gold-500">Status: Selesai</span>
+              <span class="text-stone-400">Informatika UMM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyek 5: API -->
+        <div class="project-card bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500 rounded overflow-hidden flex flex-col hover:-translate-y-1.5 transition-all duration-300 shadow-sm" data-category="api">
+          <div class="h-44 bg-gradient-to-br from-[#2b2722] to-[#181716] flex flex-col items-center justify-center text-white relative border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+            <span class="absolute top-3 right-3 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded">REST API</span>
+            <div class="text-3xl mb-1 text-gold-400">⛅</div>
+            <div class="font-serif font-bold text-lg text-stone-100">Aether Weather</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-gold-600 dark:text-gold-400 mb-1">Meteorologi</span>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 mb-2">Prakiraan Cuaca Kota Malang</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 flex-grow">
+              Integrasi Open-Meteo REST API untuk menampilkan ramalan cuaca Kota Malang dan kota-kota dunia secara akurat.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Public API</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Tailwind UI</span>
+            </div>
+            <div class="pt-3 border-t border-[#E6DFD3] dark:border-[#2F2C27] flex items-center justify-between text-xs">
+              <span class="font-semibold text-gold-500">Status: Selesai</span>
+              <span class="text-stone-400">Informatika UMM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyek 6: Front-End -->
+        <div class="project-card bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] hover:border-gold-500 rounded overflow-hidden flex flex-col hover:-translate-y-1.5 transition-all duration-300 shadow-sm" data-category="frontend">
+          <div class="h-44 bg-gradient-to-br from-[#2b2722] to-[#181716] flex flex-col items-center justify-center text-white relative border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+            <span class="absolute top-3 right-3 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded">Front-End</span>
+            <div class="text-3xl mb-1 text-gold-400">🎨</div>
+            <div class="font-serif font-bold text-lg text-stone-100">Aurelia UI Library</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-gold-600 dark:text-gold-400 mb-1">Komponen Desain</span>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 mb-2">Komponen Desain Klasik</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed mb-4 flex-grow">
+              Koleksi komponen UI Tailwind CSS: kartu berbingkai ganda, tombol perunggu mengilap, dan ornamen pembatas simetris.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Tailwind CSS</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#F6F2EA] dark:bg-[#1B1917] text-stone-600 dark:text-stone-400 border border-[#E6DFD3] dark:border-[#2F2C27]">Components</span>
+            </div>
+            <div class="pt-3 border-t border-[#E6DFD3] dark:border-[#2F2C27] flex items-center justify-between text-xs">
+              <span class="font-semibold text-gold-500">Status: Rilis</span>
+              <span class="text-stone-400">Informatika UMM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CALL TO ACTION
+         ========================================== -->
+    <section class="bg-[#F6F2EA] dark:bg-[#1B1917] border-t border-[#E6DFD3] dark:border-[#2F2C27] py-16 text-center transition-colors">
+      <div class="max-w-2xl mx-auto px-6">
+        <span class="text-xs font-bold tracking-widest uppercase text-gold-600 dark:text-gold-400 block mb-2">
+          Tertarik dengan Portofolio Firman?
+        </span>
+        <h2 class="text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-3">
+          Mari Terhubung dan Berdiskusi
+        </h2>
+        <div class="ornament">
+          <span class="ornament-diamond">◆</span>
+        </div>
+        <p class="text-stone-600 dark:text-stone-300 text-sm mb-6">
+          Punya pertanyaan tentang implementasi teknis kode Tailwind CSS atau ingin mendiskusikan tugas di kampus UMM?
+        </p>
+        <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-white font-semibold text-xs tracking-widest uppercase rounded shadow transition-all">
+          Kunjungi Halaman Kontak ✉
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="bg-[#F6F2EA] dark:bg-[#1B1917] border-t border-[#E6DFD3] dark:border-[#2F2C27] py-12 transition-colors">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#E6DFD3] dark:border-[#2F2C27]">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 border-2 border-gold-500 rounded bg-white dark:bg-[#201E1B] flex items-center justify-center font-accent font-bold text-lg text-gold-500">
+            FM
+          </div>
+          <div>
+            <div class="font-serif font-bold text-stone-900 dark:text-stone-100">Firman Maulana Firdauz</div>
+            <span class="block text-[11px] font-semibold tracking-wider uppercase text-gold-600 dark:text-gold-400">Informatika • UMM</span>
+          </div>
+        </a>
+
+        <ul class="flex items-center gap-6 text-sm text-stone-600 dark:text-stone-400">
+          <li><a href="index.html" class="hover:text-gold-500 transition-colors">Beranda</a></li>
+          <li><a href="projects.html" class="hover:text-gold-500 transition-colors">Karya &amp; Proyek</a></li>
+          <li><a href="contact.html" class="hover:text-gold-500 transition-colors">Kontak</a></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs text-stone-500 dark:text-stone-400">
+        <div>
+          &copy; 2024–2026 <strong>Firman Maulana Firdauz</strong>. Mahasiswa Informatika Universitas Muhammadiyah Malang.
+        </div>
+        <a href="#" id="backToTopBtn" class="text-gold-500 hover:text-gold-600 font-semibold inline-flex items-center gap-1">
+          Kembali ke Atas ↑
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>
