@@ -1,72 +1,27 @@
 /* ===================================================================
-   CLASSIC ELEGANT PORTFOLIO - TAILWIND COMPANION STYLESHEET
-   Mendukung konfigurasi Tailwind CSS dengan sentuhan estetika klasik
+   CLASSIC ELEGANT PORTFOLIO - LIGHTWEIGHT COMPANION STYLESHEET
+   Mendukung konfigurasi Tailwind CSS dengan tampilan bersih & tenang
    =================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-/* Pola latar belakang titik halus klasik */
-body {
-  background-image: radial-gradient(#E6DFD3 1px, transparent 1px);
-  background-size: 28px 28px;
+/* Transisi halus pergantian tema */
+html {
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.dark body {
-  background-image: radial-gradient(#2F2C27 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Ornamen pembatas klasik */
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 1.25rem auto;
-  color: #B38738;
-}
-
-.ornament::before,
-.ornament::after {
-  content: "";
-  height: 1px;
-  width: 50px;
-  background: linear-gradient(90deg, transparent, #B38738, transparent);
-}
-
-.ornament-diamond {
-  font-size: 0.8rem;
-  transform: rotate(45deg);
-  display: inline-block;
-  color: #B38738;
-}
-
-/* Bingkai ganda klasik untuk foto profil */
-.classic-frame-border {
-  position: relative;
-}
-
-.classic-frame-border::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border: 1px solid rgba(179, 135, 56, 0.35);
-  border-radius: 4px;
-  pointer-events: none;
-}
-
-/* Animasi Toast */
-@keyframes slideInRight {
+/* Animasi sederhana untuk notifikasi Toast */
+@keyframes fadeInSlide {
   from {
-    transform: translateX(100%);
+    transform: translateY(10px);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
 .animate-slide-in {
-  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInSlide 0.25s ease forwards;
 }

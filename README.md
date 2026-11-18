@@ -1,41 +1,47 @@
-# Portofolio Klasik Elegan — Firman Maulana Firdauz
+# Portofolio Pemrograman Web — Firman Maulana Firdauz
 
-Website portofolio multi-halaman berdesain **Classic Elegant** yang kini sepenuhnya mengimplementasikan **Tailwind CSS**, HTML5 Semantik, JavaScript ES6+, dan integrasi REST API.
+Website portofolio multi-halaman dengan desain **Clean, Classic & Minimalist** yang rapi, profesional, dan nyaman dibaca tanpa elemen visual yang berlebihan. Dilengkapi dengan **sistem login di awal** untuk autentikasi sesi sebelum masuk ke halaman portofolio.
 
 - **Nama**: Firman Maulana Firdauz
 - **Program Studi**: Teknik Informatika
-- **Fakultas**: Fakultas Teknik
 - **Perguruan Tinggi**: Universitas Muhammadiyah Malang (UMM)
 - **Mata Kuliah**: Pemrograman Web
 
 ---
 
-## Pemenuhan Spesifikasi Tugas (Sesuai Kurikulum)
+## Alur Masuk & Autentikasi (Login di Awal)
 
-1. **HTML (HyperText Markup Language)**:
-   - Menggunakan tag semantik HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-   - Struktur dokumen bersih, validasi W3C, dan aksesibilitas ramah pembaca layar (*screen reader* / a11y).
-2. **CSS (Tailwind CSS Framework)**:
-   - Sepenuhnya berbasis **Tailwind CSS (Utility-First)** dengan konfigurasi tema klasik:
-     - Warna kustom: `gold` (*antique gold*), `parchment` (*warm ivory*), dan `charcoal` (*deep obsidian*).
-     - Tipografi serif berkelas (*Playfair Display*, *Cormorant Garamond*) dan sans-serif modern (*Plus Jakarta Sans*).
-     - Tata letak responsif penuh (*mobile*, *tablet*, *desktop*).
-     - **Mode Malam & Siang (Dark / Light Mode)** menggunakan strategi kelas Tailwind (`darkMode: 'class'`).
+Sebelum mengakses halaman portofolio, pengguna/dosen penguji akan disambut oleh halaman **Login**:
+- **Halaman Masuk**: `login.html`
+- **Kredensial Demo**:
+  - **Username**: `firman`
+  - **Password**: `123456`
+  - *(Tersedia juga tombol instan **"Masuk Cepat sebagai Tamu / Dosen Penguji"** untuk pengujian langsung tanpa perlu mengetik)*.
+- **Proteksi Halaman**: Jika mencoba membuka `index.html`, `projects.html`, atau `contact.html` secara langsung tanpa login, sistem akan otomatis mengarahkan ke `login.html`.
+- **Fitur Logout**: Terdapat tombol **"Keluar"** di navbar bagian atas untuk mengakhiri sesi dan kembali ke halaman login.
+
+---
+
+## Pemenuhan Spesifikasi Tugas
+
+1. **HTML5 Semantik**:
+   - Struktur dokumen standar (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`), valid dan terorganisir.
+2. **Tailwind CSS (Clean & Grounded)**:
+   - Desain tidak mencolok berlebihan, menggunakan tata letak bersih (*clean layout*), proporsi tipografi terukur (*Playfair Display* & *Plus Jakarta Sans*), serta dukungan **Mode Gelap / Terang (Dark/Light mode)**.
 3. **JavaScript (ES6+)**:
-   - Skrip Vanilla JS modular dan terstruktur rapi tanpa ketergantungan library pihak ketiga.
-   - Penanganan ganti tema yang disimpan di `localStorage`.
-   - Navigasi menu mobile interaktif.
-   - Sistem filter kategori proyek dinamis tanpa reload halaman.
-   - Sistem notifikasi *toast* beranimasi.
-4. **API (Application Programming Interface)**:
-   - **GitHub REST API** (`https://api.github.com/users/{username}` & `/repos`): Mengambil profil pengguna, repositori publik, bintang (stars), forks, dan bahasa pemrograman secara live.
-   - **Quote of the Day REST API** (`https://dummyjson.com/quotes/random`): Mengambil kutipan filosofi secara asinkron dengan tombol muat ulang acak.
-   - **Contact Form POST API** (`https://jsonplaceholder.typicode.com/posts`): Simulasi pengiriman data asinkron via metode `POST` dengan notifikasi *toast* konfirmasi.
+   - Sistem login & logout sesi dengan `localStorage`.
+   - Filter dinamis kategori proyek tanpa reload halaman.
+   - Penanganan menu navigasi mobile dan notifikasi toast.
+4. **Integrasi REST API**:
+   - **GitHub REST API**: Pencarian data profil dan repositori publik secara real-time via `fetch()`.
+   - **Literary Quotes API**: Pengambilan kutipan sastra & filosofi secara asinkron dengan tombol muat ulang.
+   - **Contact Form POST API**: Simulasi pengiriman asinkron formulir pesan dengan feedback langsung.
 5. **Multi-Halaman**:
-   - Memiliki **3 halaman terintegrasi penuh** (melebihi batas minimal 2 halaman):
-     - `index.html`: Beranda, Profil Mahasiswa UMM, 4 Pilar Keahlian, Quote API, Highlight Proyek.
-     - `projects.html`: Galeri Proyek Lengkap, Filter Kategori, & Live GitHub REST API Explorer.
-     - `contact.html`: Formulir Surat Masuk Tervalidasi & Informasi Kampus UMM.
+   - Terdiri dari **4 halaman** terintegrasi:
+     1. `login.html` (Pintu Masuk & Autentikasi)
+     2. `index.html` (Beranda & Profil Mahasiswa)
+     3. `projects.html` (Karya & Live GitHub REST API Explorer)
+     4. `contact.html` (Kontak & Formulir Pesan)
 
 ---
 
@@ -43,14 +49,16 @@ Website portofolio multi-halaman berdesain **Classic Elegant** yang kini sepenuh
 
 ```
 Tugas/
-├── index.html           # Halaman 1: Beranda, Profil Firman Maulana, Quote API & Sorotan Karya (Tailwind)
-├── projects.html        # Halaman 2: Galeri Proyek Informatika, Filter, & Live GitHub API Explorer (Tailwind)
-├── contact.html         # Halaman 3: Formulir Surat Klasik & Informasi Kampus UMM (Tailwind)
-├── README.md            # Dokumentasi & Panduan Lengkap Tugas
+├── login.html           # Halaman Masuk (Login di awal dengan kredensial demo)
+├── index.html           # Halaman 1: Beranda, Profil Firman Maulana, Quote API & Sorotan Karya
+├── projects.html        # Halaman 2: Galeri Proyek Informatika, Filter Kategori, & Live GitHub API
+├── contact.html         # Halaman 3: Formulir Pesan & Informasi Kampus UMM
+├── README.md            # Dokumentasi & Panduan Proyek
 ├── css/
-│   └── style.css        # Stylesheet pendukung (Fonts Google, Pola Titik Klasik, Animasi Toast)
+│   └── style.css        # Stylesheet pendukung (Fonts Google, Transisi Halus)
 └── js/
-    ├── main.js          # Skrip umum: Mode Gelap Tailwind, Menu Mobile, Back to Top, Quote API
+    ├── auth.js          # Sistem login, proteksi halaman, dan logout
+    ├── main.js          # Skrip umum: Mode Gelap/Terang, Menu Mobile, Back to Top, Quote API
     ├── projects.js      # Modul Live GitHub REST API & Filter Kategori Proyek
     └── contact.js       # Validasi & Integrasi Asinkron Formulir Kontak
 ```
@@ -59,13 +67,6 @@ Tugas/
 
 ## Cara Menjalankan Website
 
-1. **Buka Langsung di Peramban**:
-   - Cukup klik ganda (double-click) berkas `index.html` dari File Explorer di laptop/komputer Anda.
-   - Website langsung aktif dan merender seluruh kelas Tailwind CSS secara otomatis melalui CDN resmi.
-2. **Atau Menggunakan Localhost**:
-   - Jika membuka folder proyek di VS Code, Anda dapat klik kanan `index.html` dan memilih *Open with Live Server*.
-   - Atau melalui terminal:
-     ```bash
-     python -m http.server 8000
-     ```
-     Lalu buka `http://localhost:8000` pada peramban web.
+1. Buka berkas `login.html` langsung dari File Explorer di browser mana saja.
+2. Masukkan username `firman` dan password `123456`, atau klik tombol **"Masuk Cepat sebagai Tamu / Dosen Penguji"**.
+3. Anda akan diarahkan ke halaman Beranda (`index.html`) dan dapat menjelajahi seluruh fitur portofolio.

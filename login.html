@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Portofolio Firman Maulana Firdauz</title>
+  <meta name="description" content="Halaman Masuk Portofolio Firman Maulana Firdauz, Mahasiswa Informatika Universitas Muhammadiyah Malang.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23B38738'>✦</text></svg>">
+  
+  <!-- Tailwind CSS CDN & Konfigurasi -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              500: '#B38738',
+              600: '#966E29',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#141312] text-stone-800 dark:text-stone-200 font-sans min-h-screen flex items-center justify-center p-4 transition-colors">
+
+  <!-- Tombol Ganti Tema di Pojok Kanan Atas -->
+  <div class="fixed top-5 right-5">
+    <button id="themeToggleBtn" class="w-9 h-9 rounded border border-stone-300 dark:border-stone-700 bg-white dark:bg-[#201E1B] text-stone-700 dark:text-stone-300 flex items-center justify-center text-sm shadow-sm hover:border-gold-500 transition-colors" aria-label="Ganti Tema">
+      ☀️
+    </button>
+  </div>
+
+  <div class="w-full max-w-md">
+    
+    <!-- Kartu Login Bersih & Rapi -->
+    <div class="bg-white dark:bg-[#201E1B] border border-stone-200 dark:border-stone-800 rounded-lg p-8 shadow-sm">
+      
+      <!-- Header Logo & Identitas -->
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 mx-auto mb-3 border border-gold-500 rounded bg-[#FDFBF7] dark:bg-[#141312] flex items-center justify-center font-serif font-bold text-lg text-gold-500">
+          FM
+        </div>
+        <h1 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100">
+          Masuk ke Portofolio
+        </h1>
+        <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">
+          Firman Maulana Firdauz • Informatika UMM
+        </p>
+      </div>
+
+      <!-- Pesan Peringatan / Error -->
+      <div id="loginError" class="hidden mb-4 p-3 rounded bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-xs text-center font-medium">
+      </div>
+
+      <!-- Formulir Login -->
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="username" class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
+            Username / NIM
+          </label>
+          <input 
+            type="text" 
+            id="username" 
+            class="w-full px-3.5 py-2.5 rounded border border-stone-300 dark:border-stone-700 bg-[#FDFBF7] dark:bg-[#141312] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+            placeholder="firman atau nama Anda"
+            value="firman"
+            required
+          >
+        </div>
+
+        <div>
+          <label for="password" class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
+            Kata Sandi (Password)
+          </label>
+          <input 
+            type="password" 
+            id="password" 
+            class="w-full px-3.5 py-2.5 rounded border border-stone-300 dark:border-stone-700 bg-[#FDFBF7] dark:bg-[#141312] text-stone-900 dark:text-stone-100 text-sm focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors"
+            placeholder="••••••"
+            value="123456"
+            required
+          >
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 pt-1">
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="checkbox" id="rememberMe" checked class="rounded border-stone-300 text-gold-500 focus:ring-gold-500">
+            <span>Ingat sesi masuk</span>
+          </label>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-2.5 bg-gold-500 hover:bg-gold-600 text-white font-semibold text-xs tracking-wider uppercase rounded shadow-sm hover:shadow transition-all duration-200 mt-2"
+        >
+          Masuk Sekarang →
+        </button>
+
+        <button 
+          type="button" 
+          id="guestLoginBtn"
+          class="w-full py-2 border border-stone-300 dark:border-stone-700 hover:border-gold-500 text-stone-600 dark:text-stone-300 hover:text-gold-500 font-medium text-xs rounded transition-colors"
+        >
+          Masuk Cepat sebagai Tamu / Dosen Penguji
+        </button>
+      </form>
+
+      <!-- Informasi Akun Percobaan (Sederhana & Membantu Penguji) -->
+      <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 text-center">
+        <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed">
+          <strong>Info Demo Tugas</strong>: Username: <code class="px-1 py-0.5 bg-stone-100 dark:bg-stone-800 rounded text-stone-700 dark:text-stone-300 font-mono">firman</code> | Password: <code class="px-1 py-0.5 bg-stone-100 dark:bg-stone-800 rounded text-stone-700 dark:text-stone-300 font-mono">123456</code>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer Kecil -->
+    <div class="text-center mt-6 text-xs text-stone-400">
+      &copy; 2024–2026 Firman Maulana Firdauz • Informatika UMM
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

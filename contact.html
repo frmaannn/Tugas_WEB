@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontak — Firman Maulana Firdauz (Informatika UMM)</title>
-  <meta name="description" content="Hubungi Firman Maulana Firdauz, Mahasiswa Informatika Universitas Muhammadiyah Malang melalui formulir surat klasik interaktif berbasis Tailwind CSS.">
+  <meta name="description" content="Kontak Firman Maulana Firdauz, Mahasiswa Informatika Universitas Muhammadiyah Malang.">
   
-  <!-- Favicon Monogram -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23B38738'>✦</text></svg>">
   
-  <!-- Tailwind CSS CDN & Konfigurasi Estetika Klasik -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,35 +17,12 @@
         extend: {
           colors: {
             gold: {
-              50: '#FAF6EE',
-              100: '#F4EAD6',
-              200: '#E7D4AD',
-              300: '#D9BC84',
-              400: '#C9A25A',
               500: '#B38738',
               600: '#966E29',
-              700: '#75541E',
-              800: '#553C14',
-              900: '#38270A',
-            },
-            parchment: {
-              DEFAULT: '#FDFBF7',
-              50: '#FFFFFF',
-              100: '#FDFBF7',
-              200: '#F6F2EA',
-              300: '#EFE9DE',
-              400: '#E6DFD3',
-            },
-            charcoal: {
-              DEFAULT: '#1C1A17',
-              800: '#201E1B',
-              900: '#141312',
-              950: '#0E0D0C',
             }
           },
           fontFamily: {
             serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            accent: ['"Cormorant Garamond"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
           }
         }
@@ -54,59 +30,63 @@
     }
   </script>
 
-  <!-- Stylesheet Pendukung -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- Skrip Proteksi Login -->
+  <script src="js/auth.js"></script>
 </head>
-<body class="bg-[#FDFBF7] dark:bg-[#141312] text-stone-800 dark:text-stone-200 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-[#FAF9F5] dark:bg-[#141312] text-stone-800 dark:text-stone-200 font-sans transition-colors min-h-screen flex flex-col">
 
   <!-- ==========================================
-       HEADER & NAVIGASI TAILWIND CSS
+       HEADER & NAVIGASI BERSIH
        ========================================== -->
-  <header class="sticky top-0 z-50 bg-[#FDFBF7]/90 dark:bg-[#141312]/90 backdrop-blur-md border-b border-[#E6DFD3] dark:border-[#2F2C27] transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+  <header class="sticky top-0 z-50 bg-[#FAF9F5]/95 dark:bg-[#141312]/95 backdrop-blur border-b border-stone-200 dark:border-stone-800 transition-colors">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
       
-      <!-- Logo Monogram Klasik -->
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 border-2 border-gold-500 rounded bg-white dark:bg-charcoal-800 flex items-center justify-center font-accent font-bold text-xl text-gold-500 shadow-sm relative transition-transform group-hover:scale-105">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded border border-gold-500 bg-white dark:bg-[#201E1B] flex items-center justify-center font-serif font-bold text-sm text-gold-500">
           FM
-        </div>
-        <div>
-          <div class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 tracking-wide leading-tight">
-            Firman Maulana Firdauz
-          </div>
-          <span class="block font-sans text-[11px] font-semibold tracking-widest uppercase text-gold-600 dark:text-gold-400">
-            Informatika • UMM
-          </span>
-        </div>
+        </span>
+        <span class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">
+          Firman Maulana
+        </span>
       </a>
 
-      <!-- Menu Navigasi Desktop & Mobile Dropdown -->
+      <!-- Menu Navigasi Tengah -->
       <nav>
-        <ul id="navMenu" class="hidden md:flex flex-col md:flex-row items-center gap-6 absolute md:static top-20 left-0 right-0 bg-white dark:bg-[#201E1B] md:bg-transparent md:dark:bg-transparent border-b md:border-b-0 border-[#E6DFD3] dark:border-[#2F2C27] p-6 md:p-0 shadow-lg md:shadow-none transition-all">
+        <ul id="navMenu" class="hidden md:flex items-center gap-6 text-sm">
           <li>
-            <a href="index.html" class="nav-link text-sm font-medium tracking-wide py-1 text-stone-600 dark:text-stone-300 hover:text-gold-500 dark:hover:text-gold-400 transition-colors">
+            <a href="index.html" class="nav-link text-stone-600 dark:text-stone-400 hover:text-gold-500 transition-colors">
               Beranda
             </a>
           </li>
           <li>
-            <a href="projects.html" class="nav-link text-sm font-medium tracking-wide py-1 text-stone-600 dark:text-stone-300 hover:text-gold-500 dark:hover:text-gold-400 transition-colors">
+            <a href="projects.html" class="nav-link text-stone-600 dark:text-stone-400 hover:text-gold-500 transition-colors">
               Karya &amp; Proyek
             </a>
           </li>
           <li>
-            <a href="contact.html" class="nav-link text-sm font-medium tracking-wide py-1 transition-colors text-gold-500 font-semibold border-b-2 border-gold-500">
+            <a href="contact.html" class="nav-link font-medium text-gold-500 border-b border-gold-500 pb-0.5">
               Kontak
             </a>
           </li>
         </ul>
       </nav>
 
-      <!-- Aksi Navigasi (Pengubah Tema & Hamburger Mobile) -->
+      <!-- Aksi Kanan -->
       <div class="flex items-center gap-3">
-        <button id="themeToggleBtn" class="w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] bg-white dark:bg-[#201E1B] text-stone-800 dark:text-stone-200 hover:border-gold-500 hover:text-gold-500 flex items-center justify-center transition-all shadow-sm" aria-label="Ganti Tema">
+        <div class="hidden sm:flex items-center gap-2 text-xs border border-stone-200 dark:border-stone-800 rounded px-2.5 py-1 bg-white dark:bg-[#201E1B]">
+          <span class="text-stone-400">User:</span>
+          <strong id="userDisplay" class="text-stone-800 dark:text-stone-200 font-medium">Firman</strong>
+          <button id="logoutBtn" class="text-red-500 hover:text-red-600 font-medium ml-2 pl-2 border-l border-stone-200 dark:border-stone-700">
+            Keluar
+          </button>
+        </div>
+
+        <button id="themeToggleBtn" class="w-8 h-8 rounded border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#201E1B] text-stone-700 dark:text-stone-300 flex items-center justify-center text-xs hover:border-gold-500 transition-colors" aria-label="Ganti Tema">
           ☀️
         </button>
-        <button id="hamburgerBtn" class="md:hidden w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] text-stone-800 dark:text-stone-200 flex items-center justify-center text-lg" aria-label="Buka Menu" aria-expanded="false">
+
+        <button id="hamburgerBtn" class="md:hidden w-8 h-8 rounded border border-stone-200 dark:border-stone-800 flex items-center justify-center text-sm" aria-label="Menu">
           ☰
         </button>
       </div>
@@ -116,233 +96,165 @@
 
   <main class="flex-grow">
     <!-- ==========================================
-         BANNER HALAMAN KONTAK
+         BANNER KONTAK
          ========================================== -->
-    <section class="max-w-6xl mx-auto px-6 pt-16 pb-10 text-center">
-      <span class="text-xs font-bold tracking-widest uppercase text-gold-600 dark:text-gold-400 block mb-2">
+    <section class="max-w-5xl mx-auto px-6 pt-12 pb-6 text-center">
+      <span class="text-xs font-semibold text-gold-600 dark:text-gold-400 uppercase tracking-wider block mb-1">
         Korespondensi
       </span>
-      <h1 class="text-3xl sm:text-5xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-3">
-        Hubungi Firman Maulana
+      <h1 class="text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-2">
+        Hubungi Saya
       </h1>
-      <div class="ornament">
-        <span class="ornament-diamond">◆</span>
-      </div>
-      <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-        Pintu komunikasi selalu terbuka untuk mendiskusikan tugas pemrograman web, riset teknologi informatika, maupun kolaborasi proyek bersama mahasiswa Universitas Muhammadiyah Malang.
+      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 max-w-lg mx-auto">
+        Silakan tinggalkan pesan untuk diskusi tugas pemrograman web atau komunikasi seputar perkuliahan di UMM.
       </p>
     </section>
 
     <!-- ==========================================
-         FORMULIR SURAT & KARTU INFORMASI TAILWIND
+         INFORMASI & FORMULIR KONTAK
          ========================================== -->
-    <section class="bg-[#F6F2EA] dark:bg-[#1B1917] border-y border-[#E6DFD3] dark:border-[#2F2C27] py-16 transition-colors">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
-          <!-- Kolom Kiri: Informasi Kontak & Kampus UMM -->
-          <div class="lg:col-span-5 flex flex-col gap-6">
-            <div class="bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] rounded p-6 sm:p-8 shadow-sm relative transition-colors">
-              <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100 mb-6 pb-4 border-b border-[#E6DFD3] dark:border-[#2F2C27]">
-                Informasi Korespondensi
-              </h3>
+    <section class="max-w-5xl mx-auto px-6 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Kolom Kiri: Detail Kontak -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="bg-white dark:bg-[#201E1B] border border-stone-200 dark:border-stone-800 rounded-lg p-6 shadow-sm">
+            <h3 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 mb-4 pb-2 border-b border-stone-100 dark:border-stone-800">
+              Informasi Kontak
+            </h3>
 
-              <!-- Item 1: Email Kampus & Pribadi -->
-              <div class="flex items-start gap-4 mb-6">
-                <div class="w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] bg-[#F6F2EA] dark:bg-[#1B1917] text-gold-500 flex items-center justify-center text-sm flex-shrink-0">
-                  ✉
-                </div>
-                <div>
-                  <h5 class="text-[11px] font-bold tracking-wider uppercase text-stone-500 dark:text-stone-400 mb-1">
-                    Surat Elektronik (Email)
-                  </h5>
-                  <a href="mailto:firman.maulana@webmail.umm.ac.id" class="text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-gold-500 break-all transition-colors block">
-                    firman.maulana@webmail.umm.ac.id
-                  </a>
-                  <div class="text-xs text-stone-500 dark:text-stone-400 mt-1">
-                    Alternatif: <a href="mailto:firmanmaulana.firdauz@gmail.com" class="text-gold-500 hover:underline">firmanmaulana.firdauz@gmail.com</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Item 2: Lokasi Kampus UMM -->
-              <div class="flex items-start gap-4 mb-6">
-                <div class="w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] bg-[#F6F2EA] dark:bg-[#1B1917] text-gold-500 flex items-center justify-center text-sm flex-shrink-0">
-                  📍
-                </div>
-                <div>
-                  <h5 class="text-[11px] font-bold tracking-wider uppercase text-stone-500 dark:text-stone-400 mb-1">
-                    Kampus &amp; Domisili
-                  </h5>
-                  <p class="text-xs sm:text-sm text-stone-800 dark:text-stone-200 leading-relaxed">
-                    <strong>Program Studi Informatika</strong><br>
-                    Fakultas Teknik, Universitas Muhammadiyah Malang<br>
-                    Jl. Raya Tlogomas No. 246, Kota Malang, Jawa Timur
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 3: Waktu Kerja / Respons -->
-              <div class="flex items-start gap-4 mb-6">
-                <div class="w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] bg-[#F6F2EA] dark:bg-[#1B1917] text-gold-500 flex items-center justify-center text-sm flex-shrink-0">
-                  🕰
-                </div>
-                <div>
-                  <h5 class="text-[11px] font-bold tracking-wider uppercase text-stone-500 dark:text-stone-400 mb-1">
-                    Waktu Korespondensi
-                  </h5>
-                  <p class="text-xs sm:text-sm text-stone-800 dark:text-stone-200">
-                    Senin – Sabtu, 08.00 – 18.00 WIB
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 4: Kanal Jejaring Kode -->
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 rounded border border-[#E6DFD3] dark:border-[#2F2C27] bg-[#F6F2EA] dark:bg-[#1B1917] text-gold-500 flex items-center justify-center text-sm flex-shrink-0">
-                  🌐
-                </div>
-                <div>
-                  <h5 class="text-[11px] font-bold tracking-wider uppercase text-stone-500 dark:text-stone-400 mb-1">
-                    Kanal Kode &amp; Jejaring
-                  </h5>
-                  <div class="flex gap-4 text-xs font-semibold text-gold-500">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub Profil ↗</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn ↗</a>
-                  </div>
-                </div>
-              </div>
+            <!-- Email -->
+            <div class="mb-4">
+              <span class="text-[11px] font-semibold text-stone-400 uppercase tracking-wider block">Email Kampus &amp; Pribadi</span>
+              <a href="mailto:firman.maulana@webmail.umm.ac.id" class="text-xs font-medium text-stone-800 dark:text-stone-200 hover:text-gold-600 block mt-0.5">
+                firman.maulana@webmail.umm.ac.id
+              </a>
+              <a href="mailto:firmanmaulana.firdauz@gmail.com" class="text-xs text-stone-500 hover:text-gold-600 block mt-0.5">
+                firmanmaulana.firdauz@gmail.com
+              </a>
             </div>
 
-            <!-- Kartu Motto UMM -->
-            <div class="bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] rounded p-6 text-center shadow-sm">
-              <div class="text-gold-500 text-lg mb-2">✦ ✦ ✦</div>
-              <p class="font-serif italic text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
-                "Jas Merah Kampus Putih — Menuntut ilmu dengan kesungguhan, berkarya dengan keanggunan logika dan etika."
+            <!-- Domisili -->
+            <div class="mb-4">
+              <span class="text-[11px] font-semibold text-stone-400 uppercase tracking-wider block">Kampus</span>
+              <p class="text-xs text-stone-700 dark:text-stone-300 mt-0.5 leading-relaxed">
+                Teknik Informatika, Universitas Muhammadiyah Malang<br>
+                Jl. Raya Tlogomas No. 246, Kota Malang
               </p>
             </div>
-          </div>
 
-          <!-- Kolom Kanan: Formulir Surat Klasik Berbasis Tailwind CSS -->
-          <div class="lg:col-span-7">
-            <div class="bg-white dark:bg-[#201E1B] border border-[#E6DFD3] dark:border-[#2F2C27] rounded p-6 sm:p-10 shadow-sm transition-colors">
-              
-              <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#E6DFD3] dark:border-[#2F2C27]">
-                <h3 class="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">
-                  Surat Masuk untuk Firman
-                </h3>
-                <span class="text-[10px] font-bold tracking-widest uppercase text-gold-600 dark:text-gold-400 px-2 py-1 bg-gold-100 dark:bg-gold-900/40 rounded border border-gold-300 dark:border-gold-700">
-                  FORM TERVALIDASI
-                </span>
+            <!-- Jam Respons -->
+            <div class="mb-4">
+              <span class="text-[11px] font-semibold text-stone-400 uppercase tracking-wider block">Waktu Respons</span>
+              <p class="text-xs text-stone-700 dark:text-stone-300 mt-0.5">
+                Senin – Sabtu (08.00 – 17.00 WIB)
+              </p>
+            </div>
+
+            <!-- Profil Link -->
+            <div class="pt-2">
+              <span class="text-[11px] font-semibold text-stone-400 uppercase tracking-wider block mb-1">Tautan</span>
+              <div class="flex gap-3 text-xs text-gold-600 dark:text-gold-400 font-medium">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub ↗</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn ↗</a>
               </div>
-
-              <form id="classicContactForm" class="space-y-5">
-                <!-- Nama -->
-                <div>
-                  <label for="contactName" class="block text-xs font-bold tracking-wider uppercase text-stone-700 dark:text-stone-300 mb-1.5">
-                    Nama Lengkap Pengirim *
-                  </label>
-                  <input 
-                    type="text" 
-                    id="contactName" 
-                    class="w-full px-4 py-3 bg-[#F6F2EA] dark:bg-[#1B1917] border border-[#E6DFD3] dark:border-[#2F2C27] focus:border-gold-500 focus:ring-1 focus:ring-gold-500 rounded text-stone-900 dark:text-stone-100 text-sm outline-none transition-colors"
-                    placeholder="Contoh: Budi Prasetyo" 
-                    required
-                  >
-                </div>
-
-                <!-- Email -->
-                <div>
-                  <label for="contactEmail" class="block text-xs font-bold tracking-wider uppercase text-stone-700 dark:text-stone-300 mb-1.5">
-                    Alamat Email *
-                  </label>
-                  <input 
-                    type="email" 
-                    id="contactEmail" 
-                    class="w-full px-4 py-3 bg-[#F6F2EA] dark:bg-[#1B1917] border border-[#E6DFD3] dark:border-[#2F2C27] focus:border-gold-500 focus:ring-1 focus:ring-gold-500 rounded text-stone-900 dark:text-stone-100 text-sm outline-none transition-colors"
-                    placeholder="email.anda@domain.com" 
-                    required
-                  >
-                </div>
-
-                <!-- Subjek -->
-                <div>
-                  <label for="contactSubject" class="block text-xs font-bold tracking-wider uppercase text-stone-700 dark:text-stone-300 mb-1.5">
-                    Subjek / Topik Korespondensi
-                  </label>
-                  <input 
-                    type="text" 
-                    id="contactSubject" 
-                    class="w-full px-4 py-3 bg-[#F6F2EA] dark:bg-[#1B1917] border border-[#E6DFD3] dark:border-[#2F2C27] focus:border-gold-500 focus:ring-1 focus:ring-gold-500 rounded text-stone-900 dark:text-stone-100 text-sm outline-none transition-colors"
-                    placeholder="Tugas Pemrograman Web / Kolaborasi UMM"
-                  >
-                </div>
-
-                <!-- Pesan -->
-                <div>
-                  <label for="contactMessage" class="block text-xs font-bold tracking-wider uppercase text-stone-700 dark:text-stone-300 mb-1.5">
-                    Isi Surat / Pesan *
-                  </label>
-                  <textarea 
-                    id="contactMessage" 
-                    rows="5"
-                    class="w-full px-4 py-3 bg-[#F6F2EA] dark:bg-[#1B1917] border border-[#E6DFD3] dark:border-[#2F2C27] focus:border-gold-500 focus:ring-1 focus:ring-gold-500 rounded text-stone-900 dark:text-stone-100 text-sm outline-none transition-colors resize-y"
-                    placeholder="Tuliskan pesan Anda kepada Firman Maulana Firdauz..." 
-                    required
-                  ></textarea>
-                </div>
-
-                <!-- Tombol Submit -->
-                <button 
-                  type="submit" 
-                  id="submitContactBtn" 
-                  class="w-full py-3.5 bg-gold-500 hover:bg-gold-600 text-white font-semibold text-xs tracking-widest uppercase rounded shadow-md hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  Kirim Surat ke Firman ✉
-                </button>
-
-                <p class="text-[11px] text-stone-500 dark:text-stone-400 text-center pt-2">
-                  * Pesan akan dikirimkan secara asinkron menggunakan <code>fetch()</code> API dengan notifikasi konfirmasi langsung.
-                </p>
-              </form>
             </div>
           </div>
-
         </div>
+
+        <!-- Kolom Kanan: Formulir Kirim Pesan -->
+        <div class="md:col-span-7">
+          <div class="bg-white dark:bg-[#201E1B] border border-stone-200 dark:border-stone-800 rounded-lg p-6 sm:p-7 shadow-sm">
+            
+            <h3 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 mb-4 pb-2 border-b border-stone-100 dark:border-stone-800">
+              Kirim Pesan
+            </h3>
+
+            <form id="classicContactForm" class="space-y-4">
+              <div>
+                <label for="contactName" class="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
+                  Nama Anda *
+                </label>
+                <input 
+                  type="text" 
+                  id="contactName" 
+                  class="w-full px-3.5 py-2 bg-[#FAF9F5] dark:bg-[#141312] border border-stone-300 dark:border-stone-700 rounded text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-gold-500 transition-colors"
+                  placeholder="Nama lengkap" 
+                  required
+                >
+              </div>
+
+              <div>
+                <label for="contactEmail" class="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
+                  Alamat Email *
+                </label>
+                <input 
+                  type="email" 
+                  id="contactEmail" 
+                  class="w-full px-3.5 py-2 bg-[#FAF9F5] dark:bg-[#141312] border border-stone-300 dark:border-stone-700 rounded text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-gold-500 transition-colors"
+                  placeholder="nama@email.com" 
+                  required
+                >
+              </div>
+
+              <div>
+                <label for="contactSubject" class="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
+                  Subjek
+                </label>
+                <input 
+                  type="text" 
+                  id="contactSubject" 
+                  class="w-full px-3.5 py-2 bg-[#FAF9F5] dark:bg-[#141312] border border-stone-300 dark:border-stone-700 rounded text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-gold-500 transition-colors"
+                  placeholder="Topik pesan / tugas"
+                >
+              </div>
+
+              <div>
+                <label for="contactMessage" class="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
+                  Isi Pesan *
+                </label>
+                <textarea 
+                  id="contactMessage" 
+                  rows="4"
+                  class="w-full px-3.5 py-2 bg-[#FAF9F5] dark:bg-[#141312] border border-stone-300 dark:border-stone-700 rounded text-stone-900 dark:text-stone-100 text-xs focus:outline-none focus:border-gold-500 transition-colors resize-y"
+                  placeholder="Tuliskan pesan Anda..." 
+                  required
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                id="submitContactBtn" 
+                class="w-full py-2.5 bg-stone-900 hover:bg-stone-800 dark:bg-stone-100 dark:hover:bg-white dark:text-stone-900 text-white font-medium text-xs rounded transition-colors"
+              >
+                Kirim Pesan ✉
+              </button>
+
+              <p class="text-[11px] text-stone-400 text-center">
+                Pesan dikirimkan secara asinkron via <code>fetch()</code> API simulasi.
+              </p>
+            </form>
+
+          </div>
+        </div>
+
       </div>
     </section>
+
   </main>
 
   <!-- ==========================================
        FOOTER
        ========================================== -->
-  <footer class="bg-[#F6F2EA] dark:bg-[#1B1917] border-t border-[#E6DFD3] dark:border-[#2F2C27] py-12 transition-colors">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#E6DFD3] dark:border-[#2F2C27]">
-        <a href="index.html" class="flex items-center gap-3">
-          <div class="w-10 h-10 border-2 border-gold-500 rounded bg-white dark:bg-[#201E1B] flex items-center justify-center font-accent font-bold text-lg text-gold-500">
-            FM
-          </div>
-          <div>
-            <div class="font-serif font-bold text-stone-900 dark:text-stone-100">Firman Maulana Firdauz</div>
-            <span class="block text-[11px] font-semibold tracking-wider uppercase text-gold-600 dark:text-gold-400">Informatika • UMM</span>
-          </div>
-        </a>
-
-        <ul class="flex items-center gap-6 text-sm text-stone-600 dark:text-stone-400">
-          <li><a href="index.html" class="hover:text-gold-500 transition-colors">Beranda</a></li>
-          <li><a href="projects.html" class="hover:text-gold-500 transition-colors">Karya &amp; Proyek</a></li>
-          <li><a href="contact.html" class="hover:text-gold-500 transition-colors">Kontak</a></li>
-        </ul>
+  <footer class="bg-white dark:bg-[#1B1917] border-t border-stone-200 dark:border-stone-800 py-6 transition-colors">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500 dark:text-stone-400">
+      <div>
+        &copy; 2024–2026 <strong>Firman Maulana Firdauz</strong> • Informatika UMM
       </div>
-
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs text-stone-500 dark:text-stone-400">
-        <div>
-          &copy; 2024–2026 <strong>Firman Maulana Firdauz</strong>. Mahasiswa Informatika Universitas Muhammadiyah Malang.
-        </div>
-        <a href="#" id="backToTopBtn" class="text-gold-500 hover:text-gold-600 font-semibold inline-flex items-center gap-1">
-          Kembali ke Atas ↑
-        </a>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-stone-900 dark:hover:text-stone-200">Beranda</a>
+        <a href="projects.html" class="hover:text-stone-900 dark:hover:text-stone-200">Karya</a>
+        <a href="#" id="backToTopBtn" class="text-gold-600 dark:text-gold-400 font-medium">Ke Atas ↑</a>
       </div>
     </div>
   </footer>

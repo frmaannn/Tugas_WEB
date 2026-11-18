@@ -1,8 +1,7 @@
 /**
  * ===================================================================
- * CLASSIC ELEGANT PORTFOLIO - MAIN JAVASCRIPT (TAILWIND CSS READY)
- * Pemilik: Firman Maulana Firdauz (Informatika UMM)
- * Fitur: Dark/Light Mode Tailwind, Mobile Menu, Quote API, Toast
+ * MAIN SCRIPT - TAILWIND CSS
+ * Fitur: Dark/Light Mode, Mobile Menu, Quote API, Toast Sederhana
  * ===================================================================
  */
 
@@ -21,7 +20,6 @@ function initTheme() {
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
   
-  // Set tema awal
   applyTheme(savedTheme);
 
   if (themeToggleBtn) {
@@ -30,7 +28,7 @@ function initTheme() {
       const newTheme = isDark ? 'light' : 'dark';
       applyTheme(newTheme);
       localStorage.setItem('portfolio-theme', newTheme);
-      showToast(`Mode ${newTheme === 'dark' ? 'Malam (Dark)' : 'Klasik (Light)'} diaktifkan`);
+      showToast(`Mode ${newTheme === 'dark' ? 'Malam' : 'Terang'} aktif`);
     });
   }
 }
@@ -38,11 +36,9 @@ function initTheme() {
 function applyTheme(theme) {
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');
-    document.documentElement.setAttribute('data-theme', 'dark');
     updateThemeIcon('🌙');
   } else {
     document.documentElement.classList.remove('dark');
-    document.documentElement.removeAttribute('data-theme');
     updateThemeIcon('☀️');
   }
 }
@@ -51,12 +47,11 @@ function updateThemeIcon(icon) {
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   if (themeToggleBtn) {
     themeToggleBtn.textContent = icon;
-    themeToggleBtn.setAttribute('title', `Ganti Tema`);
   }
 }
 
 /* =========================================================
-   2. NAVIGASI MOBILE (HAMBURGER MENU DENGAN TAILWIND)
+   2. NAVIGASI MOBILE (HAMBURGER)
    ========================================================= */
 function initMobileNav() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -67,26 +62,13 @@ function initMobileNav() {
       const isHidden = navMenu.classList.contains('hidden');
       if (isHidden) {
         navMenu.classList.remove('hidden');
-        navMenu.classList.add('flex');
+        navMenu.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'dark:bg-[#201E1B]', 'p-4', 'border-b', 'border-stone-200', 'dark:border-stone-800', 'shadow');
         hamburgerBtn.innerHTML = '✕';
-        hamburgerBtn.setAttribute('aria-expanded', 'true');
       } else {
         navMenu.classList.add('hidden');
-        navMenu.classList.remove('flex');
+        navMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'dark:bg-[#201E1B]', 'p-4', 'border-b', 'border-stone-200', 'dark:border-stone-800', 'shadow');
         hamburgerBtn.innerHTML = '☰';
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
       }
-    });
-
-    // Tutup menu saat tautan diklik pada layar kecil
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth < 768) {
-          navMenu.classList.add('hidden');
-          navMenu.classList.remove('flex');
-          hamburgerBtn.innerHTML = '☰';
-        }
-      });
     });
   }
 }
@@ -103,14 +85,14 @@ function initActiveNavLink() {
     if (!href) return;
     
     if (currentPath.endsWith(href) || (currentPath.endsWith('/') && href === 'index.html')) {
-      link.classList.add('text-gold-500', 'font-semibold', 'border-b-2', 'border-gold-500');
-      link.classList.remove('text-stone-600', 'dark:text-stone-300');
+      link.classList.add('text-gold-500', 'font-medium', 'border-b', 'border-gold-500');
+      link.classList.remove('text-stone-600', 'dark:text-stone-400');
     }
   });
 }
 
 /* =========================================================
-   4. KEMBALI KE ATAS (BACK TO TOP)
+   4. KEMBALI KE ATAS
    ========================================================= */
 function initBackToTop() {
   const backToTopBtn = document.getElementById('backToTopBtn');
@@ -126,8 +108,7 @@ function initBackToTop() {
 }
 
 /* =========================================================
-   5. INTEGRASI API: KUTIPAN FILOSOFI / INSPIRATIF
-   Mengambil data kutipan secara asinkron via fetch()
+   5. INTEGRASI API: KUTIPAN FILOSOFI
    ========================================================= */
 const fallbackQuotes = [
   {
@@ -139,16 +120,8 @@ const fallbackQuotes = [
     author: "Martin Fowler"
   },
   {
-    quote: "Design is not just what it looks like and feels like. Design is how it works.",
-    author: "Steve Jobs"
-  },
-  {
     quote: "First, solve the problem. Then, write the code.",
     author: "John Johnson"
-  },
-  {
-    quote: "Code is like humor. When you have to explain it, it’s bad.",
-    author: "Cory House"
   }
 ];
 
@@ -161,7 +134,6 @@ async function initQuoteAPI() {
 
   async function fetchRandomQuote() {
     quoteTextElem.style.opacity = '0.5';
-    quoteTextElem.textContent = "Memuat kutipan sastra & filosofi...";
 
     try {
       const controller = new AbortController();
@@ -172,7 +144,7 @@ async function initQuoteAPI() {
       });
       clearTimeout(timeoutId);
 
-      if (!response.ok) throw new Error('Gagal memuat API');
+      if (!response.ok) throw new Error('Gagal API');
       
       const data = await response.json();
       quoteTextElem.textContent = `"${data.quote}"`;
@@ -186,7 +158,6 @@ async function initQuoteAPI() {
     }
   }
 
-  // Muat kutipan awal
   fetchRandomQuote();
 
   if (quoteRefreshBtn) {
@@ -197,30 +168,29 @@ async function initQuoteAPI() {
 }
 
 /* =========================================================
-   6. HELPER NOTIFIKASI TOAST BERBASIS TAILWIND CSS
+   6. NOTIFIKASI TOAST BERSIH
    ========================================================= */
-function showToast(message, duration = 3500) {
+function showToast(message, duration = 3000) {
   let container = document.getElementById('toastContainer');
   if (!container) {
     container = document.createElement('div');
     container.id = 'toastContainer';
-    container.className = 'fixed bottom-6 right-6 z-50 flex flex-col gap-2.5 max-w-sm pointer-events-none';
+    container.className = 'fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none';
     document.body.appendChild(container);
   }
 
   const toast = document.createElement('div');
-  toast.className = 'pointer-events-auto bg-white dark:bg-[#201E1B] text-stone-900 dark:text-stone-100 border border-gold-500 shadow-xl px-5 py-3.5 rounded flex items-center gap-3 text-sm animate-slide-in';
+  toast.className = 'pointer-events-auto bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 border border-stone-700 dark:border-stone-300 px-3.5 py-2 rounded shadow text-xs flex items-center gap-2 animate-slide-in';
   toast.innerHTML = `
-    <span class="text-gold-500 text-lg">❖</span>
-    <span class="font-medium">${message}</span>
+    <span class="text-gold-500 font-bold">•</span>
+    <span>${message}</span>
   `;
 
   container.appendChild(toast);
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateX(100%)';
-    toast.style.transition = 'all 0.3s ease';
-    setTimeout(() => toast.remove(), 300);
+    toast.style.transition = 'opacity 0.25s ease';
+    setTimeout(() => toast.remove(), 250);
   }, duration);
 }
